@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Service catalogue to a prefilled enquiry",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "home navigation",
+      "services overview",
+      "six unique service routes",
+      "service enquiry preselection",
+      "GET /api/enquiry-status",
+      "related services"
+    ],
+    "description": "Browse the catalogue and open a service-specific enquiry.",
+    "steps": [
+      "Open Services from the main navigation.",
+      "Open Gypsum Partitions & Drywall and review its scope and FAQ.",
+      "Choose Discuss This Service."
+    ],
+    "expected": "The Contact Us form has Gypsum Partitions & Drywall selected, and clearly states delivery is not connected."
+  },
+  {
+    "name": "Validation and honest delivery failure",
+    "viewport": "desktop",
+    "covers": [
+      "required field validation",
+      "phone validation",
+      "POST /api/enquiries",
+      "unconfigured server rejection",
+      "input preservation",
+      "optional fields",
+      "uploads unavailable"
+    ],
+    "description": "Invalid input is rejected and valid input cannot claim delivery without configuration.",
+    "steps": [
+      "Open Contact Us and submit the empty form.",
+      "Verify validation errors, then fill Name with Test Customer, Phone with +971501234567, Project location with Test location, service Gypsum False Ceilings, and description Plan a ceiling for my living room.",
+      "Expand Add photos, dimensions or other details and verify uploads are unavailable.",
+      "Submit the completed enquiry."
+    ],
+    "expected": "The page reports that nothing has been sent because delivery is not configured, retains the entered name and description, and never shows a success confirmation."
+  },
+  {
+    "name": "Mobile navigation and inspiration selection",
+    "viewport": "mobile",
+    "covers": [
+      "mobile menu open close",
+      "inspiration style prefill",
+      "responsive contact form",
+      "mobile sticky controls",
+      "WhatsApp configuration guardrail"
+    ],
+    "description": "Select inspiration on a phone and confirm unavailable contact actions are honest.",
+    "steps": [
+      "Open the mobile menu and choose Projects.",
+      "Scroll to the inspiration collection and choose Minimal flat ceilings.",
+      "Check that the enquiry description includes Minimal flat ceilings.",
+      "Tap WhatsApp in the bottom bar, dismiss its notice, and open then close the mobile menu."
+    ],
+    "expected": "The style is preserved in the form. WhatsApp shows a configuration notice without sending a message. The menu can be closed and the page has no horizontal overflow."
+  },
+  {
+    "name": "Verified content boundaries and accessible information",
+    "viewport": "desktop",
+    "covers": [
+      "projects empty state",
+      "unpublished project guard",
+      "about page",
+      "privacy route",
+      "FAQ disclosure",
+      "keyboard navigation"
+    ],
+    "description": "Review information pages without fabricated credentials or projects.",
+    "steps": [
+      "Open Projects and verify the portfolio empty state and labelled inspiration images.",
+      "Open About Us and review the pending company confirmation notice.",
+      "Open Privacy Policy in the footer.",
+      "Return Home and use keyboard navigation to expand What do you need for a quotation?."
+    ],
+    "expected": "No fictional project, rating or credential is published. Privacy information and the expanded FAQ answer are readable, with visible keyboard focus."
+  },
+  {
+    "name": "All service content and mobile contact controls",
+    "viewport": "mobile",
+    "covers": [
+      "false ceilings route",
+      "decorative ceilings route",
+      "commercial route",
+      "acoustic fire-rated route",
+      "repairs route",
+      "service FAQs",
+      "phone configuration guardrail"
+    ],
+    "description": "Check unique service details and mobile contact safety.",
+    "steps": [
+      "Open Services and visit each of the six service cards, returning to Services between visits.",
+      "On Acoustic & Fire-Rated Systems expand Is a fire-rated board enough? and read its answer.",
+      "On Gypsum Repairs & Finishing review the leak and moisture warnings.",
+      "Tap Call in the bottom bar."
+    ],
+    "expected": "All six service pages render their own content. The acoustic answer explains assembly-level performance. Call shows an unconfigured phone notice instead of a fake telephone link."
+  }
+]
+
